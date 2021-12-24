@@ -35,7 +35,7 @@ func main() {
 
 	cancel()
 
-	time.Sleep(time.Second * 2)
+	time.Sleep(time.Second * 2t )
 	log.Println("num gortins 3:", runtime.NumGoroutine())
 	log.Println("cancel sender")
-}
+}
