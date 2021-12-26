@@ -5,19 +5,23 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"time"
 )
 
 func main() {
 
-	argument := os.Args[1]
+	website := os.Args[1]
 
-	if len(argument) <= 2 {
+	timeout, _ := strconv.ParseInt(os.Args[2], 10, 64)
+
+	if len(website) <= 2 {
 		return
 	}
 	client := http.Client{}
-	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
-	req, err := http.NewRequestWithContext(ctx, "GET", argument, nil)
+
+	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(timeout)*time.Second)
+	req, err := http.NewRequestWithContext(ctx, "GET", website, nil)
 
 	if err != nil {
 		log.Fatal("error timeout: %v", err)
