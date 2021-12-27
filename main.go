@@ -28,6 +28,7 @@ func main() {
 		}
 	}()
 
+
 	time.Sleep(time.Second * 2)
 
 	log.Println("num gortins 2:", runtime.NumGoroutine())

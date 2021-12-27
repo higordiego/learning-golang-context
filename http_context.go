@@ -13,9 +13,9 @@ func main() {
 
 	website := os.Args[1]
 
-	timeout, _ := strconv.ParseInt(os.Args[2], 10, 64)
+	timeout, err := strconv.ParseInt(os.Args[2], 10, 64)
 
-	if len(website) <= 2 {
+	if len(website) <= 2 || err != nil {
 		return
 	}
 	client := http.Client{}
